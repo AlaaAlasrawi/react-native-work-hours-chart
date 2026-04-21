@@ -1,4 +1,4 @@
-# RN Charts Showcase
+# React native work hours chart
 
 Small React Native chart examples built with Expo + TypeScript.
 
