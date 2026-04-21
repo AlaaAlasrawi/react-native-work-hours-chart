@@ -1,4 +1,14 @@
-import React from 'react';
+import React from "react";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
+import HoursSummaryCard from "../components/HoursSummaryCard";
+import WeeklyBarChart from "../components/WeeklyBarChart";
+import { weeklyHours } from "../data/weeklyHours";
+import { formatMinutes } from "../utils/time";
+
+export default function WeeklyHoursScreen() {
+  const total = weeklyHours.reduce((sum, item) => sum + item.minutes, 0);
+
+  return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.header}>RN Charts Showcase</Text>
       <Text style={styles.subheader}>
@@ -10,6 +20,7 @@ import React from 'react';
 
       <View style={styles.listBox}>
         <Text style={styles.listTitle}>Daily totals</Text>
+
         {weeklyHours.map((item) => (
           <View key={item.day} style={styles.row}>
             <Text style={styles.day}>{item.day}</Text>
@@ -24,45 +35,41 @@ import React from 'react';
 const styles = StyleSheet.create({
   container: {
     padding: 16,
-    gap: 16,
+    paddingBottom: 32,
+    backgroundColor: "#fff",
   },
   header: {
-    fontSize: 28,
-    fontWeight: '800',
-    color: '#111827',
-  },
-  subheader: {
-    fontSize: 15,
-    color: '#6b7280',
+    fontSize: 24,
+    fontWeight: "700",
     marginBottom: 8,
   },
+  subheader: {
+    fontSize: 16,
+    color: "#666",
+    marginBottom: 20,
+  },
   listBox: {
-    marginTop: 16,
+    marginTop: 20,
     padding: 16,
-    backgroundColor: '#ffffff',
-    borderRadius: 16,
     borderWidth: 1,
-    borderColor: '#e5e7eb',
+    borderColor: "#ddd",
+    borderRadius: 12,
   },
   listTitle: {
     fontSize: 18,
-    fontWeight: '700',
+    fontWeight: "600",
     marginBottom: 12,
   },
   row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingVertical: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#f3f4f6',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingVertical: 8,
   },
   day: {
     fontSize: 16,
-    color: '#111827',
   },
   value: {
     fontSize: 16,
-    fontWeight: '600',
-    color: '#111827',
+    fontWeight: "600",
   },
 });

@@ -1,7 +1,7 @@
-import 'react-native-gesture-handler';
-import React from 'react';
-import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
-import WeeklyHoursScreen from './src/screens/WeeklyHoursScreen';
+import "react-native-gesture-handler";
+import React from "react";
+import { SafeAreaView, StatusBar, StyleSheet } from "react-native";
+import WeeklyHoursScreen from "./screens/WeeklyHoursScreen";
 
 export default function App() {
   return (
@@ -15,6 +15,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
 });
