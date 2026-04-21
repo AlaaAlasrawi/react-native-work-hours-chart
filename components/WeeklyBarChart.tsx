@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { CartesianChart, Bar } from 'victory-native';
-import type { DayHours } from '../data/weeklyHours';
+import type { DayHours } from './WeeklyInteractiveHoursChart';
 
 type Props = {
   data: DayHours[];
@@ -14,13 +14,13 @@ export default function WeeklyBarChart({ data }: Props) {
       <View style={styles.chartBox}>
         <CartesianChart
           data={data}
-          xKey="day"
-          yKeys={["minutes"]}
+          xKey="dayShort"
+          yKeys={["hours"]}
           domainPadding={{ left: 22, right: 22, top: 16 }}
         >
           {({ points, chartBounds }) => (
             <Bar
-              points={points.minutes}
+              points={points.hours}
               chartBounds={chartBounds}
               roundedCorners={{ topLeft: 6, topRight: 6 }}
             />
